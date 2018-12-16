@@ -1,5 +1,8 @@
 'use strict';
 var rank_desc = function(collection) {
-  return collection.sort().reverse();
+  let desc_arr = collection.sort(function(a, b) {
+    return b - a;
+  });
+  return desc_arr;
 };
 module.exports = rank_desc;
