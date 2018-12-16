@@ -6,7 +6,11 @@ function rank_by_two_large_one_small(collection) {
   let asc_arr = rank_asc(collection);
   let rank_arr = new Array();
   for (let i = 0; i < asc_arr.length; i += 3) {
-    rank_arr = rank_arr.concat(asc_arr.slice(i + 1, i + 2), asc_arr.slice(i, i + 1));
+    if (asc_arr.length - i < 3) {
+      rank_arr = rank_arr.concat(asc_arr.slice(i));
+      break;
+    }
+    rank_arr = rank_arr.concat(asc_arr.slice(i + 1, i + 3), asc_arr.slice(i, i + 1));
   }
   return rank_arr;
 }
